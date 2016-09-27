@@ -1,0 +1,4 @@
+* Copy SSH key over
+* Rename hostname
+* Add missing hosts to smokeping config
+* Reboot
