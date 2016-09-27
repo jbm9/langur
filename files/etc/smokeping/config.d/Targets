@@ -1,0 +1,55 @@
+*** Targets ***
+
+probe = FPing
+
+menu = Top
+title = Network Latency Grapher
+remark = Welcome to the SmokePing website of xxx Company. \
+         Here you will learn all about the latency of our network.
+
++ Local
+
+menu = Local
+title = Local Network
+#parents = owner:/Test/James location:/
+
+++ LocalMachine
+
+menu = Local Machine
+title = This host
+host = localhost
+#alerts = someloss
+
+++ satiety
+
+menu = satiety
+title = satiety
+host = 192.168.0.201
+
+++ Eightdot
+
+menu = Eightdot
+title = 8.8.8.8
+host = 8.8.8.8
+
+++ Chromecast
+
+menu = Chromecast
+title = Chromecast
+host = 192.168.0.80
+
+
+++ modem
+
+menu = modem
+title = modem
+host = 192.168.1.1
+
+
+
+++ scanner
+
+menu = scanner
+title = scanner
+host = 192.168.0.233
+

@@ -1,0 +1,35 @@
+auto lo
+
+iface lo inet loopback
+
+auto eth0
+iface eth0 inet static
+	pre-up iptables-restore < /etc/iptables.up.rules
+	address 192.168.0.122
+	netmask 255.255.255.0
+	gateway 192.168.0.1
+
+auto eth1
+iface eth1 inet static
+	address 192.168.0.1
+	netmask 255.255.255.0
+	
+
+auto eth0:1
+iface eth0:1 inet static
+	address 192.168.1.100
+	netmask 255.255.255.0
+
+allow-hotplug wlan0
+iface wlan0 inet static
+  address 10.0.0.1
+  netmask 255.255.255.0
+  wireless-channel 1
+  wireless-essid doghouse
+  wireless-mode ad-hoc
+  wireless-key 0102030405
+
+
+
+
+iface default inet dhcp
