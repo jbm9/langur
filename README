@@ -1,9 +1,64 @@
-.skel
-=====
+langur
+======
 
-This is a skeleton project.  It needs better documentation.
+Scripts to turn an RPi into my home router. Not a router: *my* router.
 
-Contents:
+Copyright (c) 2016 Josh Myer
+License: CC0
 
-web/ -- An empty website for this thing
-code/ -- An empty directory for code for this thing
+Motivation
+----------
+
+At home, I use a Raspberry Pi as a router for my internet connection.  This
+allows me to have tens to hundreds of thousands of concurrent connections
+open (really), which I needed for some research I did.
+
+I have recently been annoyed by a few things about my internet connection,
+so I added smokeping to the stack.  I currently use an original RPi B,
+which has a hard time rendering the MRTG outputs from that.  I also realized
+that I had misconfigured the reboot process after the power went out the
+other day, and I had to manually go in and restart some interfaces on the
+RPi.  It's time to upgrade to the RPi2 I have lying around, and to make the
+setup a bit more repeatable in the process.
+
+This is probably not a setup you want to use as-is, but it may help you get
+the first iteration of an RPi router going quickly.  Feel free to fork this
+and tweak it to your heart's content.  If you add cool stuff on the wishlist,
+please submit a PR!  I'd love to have someone else add MRTG or tripwire or
+some such for me.
+
+
+Assumptions
+-----------
+
+You're going to use eth0, the hardware ethernet, as your upstream internet
+connection.
+
+You're going to have a USB ethernet adaptor for eth1, your downstream connection.
+
+You may or may not have a cheapo USB wifi adaptor to use as a WAP.  This is
+intended mostly as a backdoor to connect in if eth1 fails for whatever reason,
+not as an actual internet connection.  Probably works as one, though.
+
+Because this is my personal router, it also includes an APRS IGate that uses
+an RTL-SDR dongle.  It will probably have other weird radio tricks up its
+sleeves, and you probably don't want any of them.
+
+
+Directions
+----------
+
+Copy this repo over to your RPi (I just install git and clone it).
+
+sudo ./deploy.sh
+
+Pray.
+
+Reboot, and it should be up and running.
+
+
+Contents
+--------
+deploy.sh -- the shell script that coordinates the install
+files/    -- a mirror of the filesystem that gets splatted onto your drive
+build/    -- random tools used when figuring out what to include here
